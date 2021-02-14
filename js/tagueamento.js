@@ -13,7 +13,17 @@ ga('create', 'UA-12345-6', 'auto');
 ga('send', 'pageview');
 
 function sendClickEvent(category, action, label){
-    {ga('send',{
+    ga('send',{
+        'hitType': 'event',
+        'eventCategory': category,
+        'eventAction': action,
+        'eventLabel': label
+    });
+    console.log(category, action, label);
+}
+
+function sendStateChangeEvent(action, category = 'contato', label = 'prencheu'){
+    ga('send',{
         'hitType': 'event',
         'eventCategory': category,
         'eventAction': action,
