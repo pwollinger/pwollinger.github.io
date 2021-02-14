@@ -33,8 +33,9 @@ window.onload = _ => {
 
     download.setAttribute('onclick','sendClickEvent("menu", "download_pdf", "download_pdf")');
     contato.setAttribute('onclick','sendClickEvent("menu", "entre_em_contato", "link_externo")');
-
-    cardLorem.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardLorem.dataset.name}")`);
-    cardIpsum.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardIpsum.dataset.name}")`);
-    cardDolor.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardDolor.dataset.name}")`);
+    if (cards.length > 0) {
+        cardLorem.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardLorem.dataset.name}")`);
+        cardIpsum.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardIpsum.dataset.name}")`);
+        cardDolor.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardDolor.dataset.name}")`);
+    }
 }
