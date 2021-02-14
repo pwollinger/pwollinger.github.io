@@ -21,3 +21,20 @@ function sendClickEvent(category, action, label){
     });
     console.log(category, action, label);
 }
+
+window.onload = _ => {
+    var download = document.getElementsByClassName('menu-lista-download')[0];
+    var contato = document.getElementsByClassName('menu-lista-contato')[0];
+
+    var cards = document.getElementsByClassName('card card-montadoras');
+    var cardLorem = cards[0];
+    var cardIpsum = cards[1];
+    var cardDolor = cards[2];
+
+    download.setAttribute('onclick','sendClickEvent("menu", "download_pdf", "download_pdf")');
+    contato.setAttribute('onclick','sendClickEvent("menu", "entre_em_contato", "link_externo")');
+
+    cardLorem.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardLorem.dataset.name}")`);
+    cardIpsum.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardIpsum.dataset.name}")`);
+    cardDolor.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardDolor.dataset.name}")`);
+}
