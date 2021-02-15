@@ -41,11 +41,26 @@ window.onload = _ => {
     var cardIpsum = cards[1];
     var cardDolor = cards[2];
 
+    var form = document.getElementsByClassName("container")[0];
+    var formNome = document.getElementsByName('nome')[0];
+    var formEmail = document.getElementsByName('email')[0];
+    var formTelefone = document.getElementsByName('telefone')[0];
+    var formContato = document.getElementsByName('contato')[0];
+
     download.setAttribute('onclick','sendClickEvent("menu", "download_pdf", "download_pdf")');
     contato.setAttribute('onclick','sendClickEvent("menu", "entre_em_contato", "link_externo")');
     if (cards.length > 0) {
         cardLorem.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardLorem.dataset.name}")`);
         cardIpsum.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardIpsum.dataset.name}")`);
         cardDolor.setAttribute('onclick',`sendClickEvent("analise", "ver_mais", "${cardDolor.dataset.name}")`);
+    }
+
+    if (typeof form !== 'undefined'){
+        form.setAttribute('submit', 'sendClickEvent("contato", "enviado", "enviado")');
+
+        formNome.addEventListener('change', _ => sendStateChangeEvent(formNome.name), false);
+        formEmail.addEventListener('change', _ => sendStateChangeEvent(formEmail.name), false);
+        formTelefone.addEventListener('change', _ =>sendStateChangeEvent(formTelefone.name), false);
+        formContato.addEventListener('change', _ => sendStateChangeEvent(formContato.name), false);
     }
 }
