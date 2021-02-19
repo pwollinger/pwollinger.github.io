@@ -33,7 +33,7 @@ function sendStateChangeEvent(action, category = 'contato', label = 'prencheu'){
     });
 }
 
-//Load elements after page full load 
+//Load elements after page is fully loaded 
 window.onload = _ => {
     //Objects - Links
     var download = document.getElementsByClassName('menu-lista-download')[0];
